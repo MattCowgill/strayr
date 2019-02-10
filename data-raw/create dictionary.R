@@ -26,6 +26,13 @@ state_dict_df <- state_table %>%
 state_dict <- state_dict_df$alias
 names(state_dict) <- state_dict_df$state_abbr
 
+state_dict <- c(state_dict,
+     "SA" = "south oz",
+     "WA" = "west oz",
+     "Tas" = "tassie",
+     "Tas" = "tazzie",
+     "Tas" = "tazzy")
+
 state_dict <- state_dict[!duplicated(state_dict)]
 
 usethis::use_data(state_dict, state_table, overwrite = TRUE)
