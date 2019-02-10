@@ -7,7 +7,7 @@ Maintainer: Matt Cowgill <mattcowgill@gmail.com>
 Description: Easily convert from common abbreviations of Australian state names
     to the full name, or vice versa.
 Depends: R (>= 2.10)
-Imports: stringdist
+Imports: stringdist (>= 0.9.5.1)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
