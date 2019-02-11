@@ -1,3 +1,4 @@
+#' @importFrom stringdist amatch
 #' @export
 
 strayr <- function(string, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw"){
