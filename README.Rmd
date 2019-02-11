@@ -1,0 +1,91 @@
+---
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+
+version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
+version <- gsub('-', '.', version)  
+```
+
+# strayr
+<!-- badges: start -->
+[![Build Status](https://travis-ci.org/MattCowgill/strayr.svg?branch=master)](https://travis-ci.org/MattCowgill/strayr)
+[![codecov status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https://codecov.io/gh/MattCowgill/strayr)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+<!-- badges: end -->
+
+## Overview
+strayr is a simple tool to wrangle messy Australian state names and/or abbreviations
+into a consistent format.
+
+## Installation
+
+Install from GitHub with:
+```{r gh-installation, eval = FALSE}
+# if you don't have devtools installed, first run:
+# install.packages("devtools")
+devtools::install_github("mattcowgill/strayr")
+```
+
+
+## Examples
+
+Let's start with a character vector that includes some misspelled State names,
+some correctly spelled state names, as well as some abbreviations both malformed
+and correctly formed.
+
+```{r create-string}
+
+x <- c("western Straya", "w. A ", "new soth wailes", "SA", "tazz", "Victoria",
+       "northn territy")
+
+```
+
+To convert this character vector to a vector of abbreviations for State names,
+simply using the `strayr()` function:
+
+```{r strayr1}
+library(strayr)
+strayr(x)
+
+```
+
+If you want full names for the states rather than abbreviations:
+
+```{r strayr-fullnames}
+
+strayr(x, to = "state_name")
+
+```
+
+By default, `strayr()` uses fuzzy or approximate string matching to match the 
+elements in your character vector to state names/abbreviations. If you only want
+to permit exact matching, you can disable fuzzy matching. This means you will 
+never get false matches, but you will also fail to match misspelled state names 
+or malformed abbreviations; you'll get an `NA` if no match can be found.
+
+```{r strayr-exact}
+ strayr(x, fuzzy_match = FALSE)
+
+```
+
+If your data is in a data frame, `strayr()` works well within a `dplyr::mutate()` call:
+
+```{r dplyr}
+
+ x_df <- data.frame(state = x, stringsAsFactors = FALSE)
+
+library(dplyr)
+ x_df %>% 
+   mutate(state_abbr = strayr(state))
+```
