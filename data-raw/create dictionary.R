@@ -23,6 +23,7 @@ state_dict_df <- state_table %>%
          type = "state_abbr") %>%
   bind_rows(state_dict_df)
 
+# create dictionary as character vector
 state_dict <- state_dict_df$alias
 names(state_dict) <- state_dict_df$state_abbr
 

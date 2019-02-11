@@ -1,47 +1,30 @@
 #' @export
 
-strayr <- function(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw"){
+strayr <- function(string, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw"){
   if(!is.logical(fuzzy_match)){
     stop("`fuzzy_match` argument must be either `TRUE` or `FALSE`")
   }
 
-  if(fuzzy_match){
-    ret <- fuzzy_strayr(x, to = to, max_dist = max_dist, method = method)
-  } else {
-    ret <- exact_strayr(x, to = to)
+  if(!is.character(string)){
+    stop("`string` argument to `strayr()` must be a character vector.")
   }
 
-  ret
+  dat <- state_string_tidy(string)
 
-}
-
-
-#' @export
-
-exact_strayr <- function(x, to = "state_abbr"){
-
-  dat <- state_string_tidy(x)
-
-  matched_abbr <- names(state_dict[match(dat, tolower(state_dict))])
-
-  ret <- state_table[[to]][match(matched_abbr, state_table$state_abbr)]
-
-  ret
-}
-
-#' @importFrom stringdist amatch
-#' @export
-fuzzy_strayr <- function(x, to = "state_abbr", max_dist = 0.4, method = "jw"){
-
-  dat <- state_string_tidy(x)
-
-  matched_abbr <- names(state_dict[stringdist::amatch(dat, tolower(state_dict), method = method, maxDist = max_dist)])
+  if(fuzzy_match){
+    matched_abbr <- names(state_dict[stringdist::amatch(dat, tolower(state_dict),
+                                               method = method,
+                                               maxDist = max_dist)])
+  } else {
+    matched_abbr <- names(state_dict[match(dat, tolower(state_dict))])
+  }
 
   ret <- state_table[[to]][match(matched_abbr, state_table$state_abbr)]
 
   ret
 
 }
+
 
 
 state_string_tidy <- function(string){
