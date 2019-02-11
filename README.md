@@ -43,7 +43,7 @@ x <- c("western Straya", "w. A ", "new soth wailes", "SA", "tazz", "Victoria",
 ```
 
 To convert this character vector to a vector of abbreviations for State
-names, simply using the `strayr()` function:
+names, simply use the `strayr()` function:
 
 ``` r
 library(strayr)
