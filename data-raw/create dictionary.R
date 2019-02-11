@@ -36,5 +36,5 @@ state_dict <- c(state_dict,
 
 state_dict <- state_dict[!duplicated(state_dict)]
 
-usethis::use_data(state_dict, state_table, overwrite = TRUE)
+usethis::use_data(state_dict, state_table, overwrite = TRUE, internal = TRUE)
 
