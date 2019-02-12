@@ -34,7 +34,14 @@ state_dict <- c(state_dict,
      "Tas" = "tazzie",
      "Tas" = "tazzy")
 
+nospaces <- gsub(" ", "", state_table$state_name)
+names(nospaces) <- state_table$state_abbr
+
+state_dict <- c(state_dict, nospaces)
+
 state_dict <- state_dict[!duplicated(state_dict)]
+
+state_dict <- tolower(state_dict)
 
 usethis::use_data(state_dict, state_table, overwrite = TRUE, internal = TRUE)
 
