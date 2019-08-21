@@ -1,9 +1,10 @@
 #' Convert Australian state names and abbreviations into a consistent format
 #'
-#' @param string a character vector containing Australian state names or abbreviations
+#' @param x a (character) vector containing Australian state names or abbreviations or
+#' a (numeric) vector containing state codes (see [the ABS website](https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Australia%20(AUS)%20and%20State%20%7C%20Territory%20(S%7CT)~10017))
 #'
 #' @param to what form should the state names be converted to? Options are
-#' "state_name", "state_abbr" (the default), "iso", and "postal".
+#' "state_name", "state_abbr" (the default), "iso", "postal", and "code".
 #'
 #' @param fuzzy_match logical; either TRUE (the default) which indicates that
 #' approximate/fuzzy string matching should be used, or FALSE which indicates that
@@ -39,23 +40,23 @@
 #' @importFrom stringdist amatch
 #' @export
 
-strayr <- function(string, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw"){
+strayr <- function(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw"){
+
+
   if(!is.logical(fuzzy_match)){
     stop("`fuzzy_match` argument must be either `TRUE` or `FALSE`")
   }
 
-  if(!is.character(string)){
-    stop("`string` argument to `strayr()` must be a character vector.")
+  if(!is.numeric(x)) {
+    x <- state_string_tidy(x)
   }
 
-  dat <- state_string_tidy(string)
-
   if(fuzzy_match){
-    matched_abbr <- names(state_dict[stringdist::amatch(dat, tolower(state_dict),
+    matched_abbr <- names(state_dict[stringdist::amatch(x, tolower(state_dict),
                                                method = method,
                                                maxDist = max_dist)])
   } else {
-    matched_abbr <- names(state_dict[match(dat, tolower(state_dict))])
+    matched_abbr <- names(state_dict[match(x, tolower(state_dict))])
   }
 
   ret <- state_table[[to]][match(matched_abbr, state_table$state_abbr)]
