@@ -1,8 +1,8 @@
 #' Convert Australian state names and abbreviations into a consistent format
 #'
 #' @param x a (character) vector containing Australian state names or abbreviations or
-#' a (numeric) vector containing state codes (see [the ABS website](https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Australia%20(AUS)%20and%20State%20%7C%20Territory%20(S%7CT)~10017)).
-#' Note that strayr always returns a character vector.
+#' a (numeric) vector containing state codes (1 = NSW, 2 = Vic, 3 = Qld, 4 = SA,
+#' 5 = WA, 6 = Tas, 7 = NT, 8 = ACT). Note that strayr always returns a character vector.
 #'
 #' @param to what form should the state names be converted to? Options are
 #' "state_name", "state_abbr" (the default), "iso", "postal", and "code".

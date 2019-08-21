@@ -6,7 +6,7 @@ Authors@R: person("Matt", "Cowgill", role = c("aut", "cre"), email = "mattcowgil
 Maintainer: Matt Cowgill <mattcowgill@gmail.com>
 Description: Easily convert from common abbreviations of Australian state names
     to the full name, or vice versa.
-Depends: R (>= 2.15.3)
+Depends: R (>= 3.0.0)
 Imports: stringdist (>= 0.9.5.1)
 License: GPL-3
 Encoding: UTF-8
