@@ -10,7 +10,10 @@ state_table <- tibble::tribble(
                                      "Victoria",       "Vic", "AU-VIC",   "VIC",
                             "Western Australia",        "WA",  "AU-WA",    "WA",
                  "Australian Capital Territory",       "ACT", "AU-ACT",   "ACT",
-                           "Northern Territory",        "NT",  "AU-NT",    "NT"
+                           "Northern Territory",        "NT",  "AU-NT",    "NT",
+                                    "Australia",       "Aus",     "AU",    "AU",
+                                        "Other",       "Oth", NA_character_, NA_character_,
+                                        "Total",       "Tot", NA_character_, NA_character_
                  )
 
 state_table <- tibble::tribble(
@@ -42,6 +45,9 @@ state_dict <- state_dict_df$alias
 names(state_dict) <- state_dict_df$state_abbr
 
 state_dict <- c(state_dict,
+     "Aus" = "Australia",
+     "Aus" = "Aus",
+     "Aus" = "Oz",
      "SA" = "south oz",
      "WA" = "west oz",
      "WA" = "double you ay",
@@ -49,7 +55,11 @@ state_dict <- c(state_dict,
      "WA" = "westraya",
      "Tas" = "tassie",
      "Tas" = "tazzie",
-     "Tas" = "tazzy")
+     "Tas" = "tazzy",
+     "Oth" = "Other",
+     "Oth" = "Oth",
+     "Tot" = "Total",
+     "Tot" = "Tot")
 
 nospaces <- gsub(" ", "", state_table$state_name)
 names(nospaces) <- state_table$state_abbr

@@ -19,6 +19,16 @@ test_that("strayr returns expected output", {
   expect_length(strayr(x), 5)
 
 
+  expect_equal(strayr("South Australia"), "SA")
+  expect_equal(strayr("Australia"), "Aus")
+  expect_equal(strayr("South Aus"), "SA")
+  expect_equal(strayr("Aus"), "Aus")
 
+  expect_equal(strayr("other"), "Oth")
+  expect_equal(strayr("oth"), "Oth")
+
+
+  expect_equal(strayr(c("Aus", "NSW", "Vic", "Qld", "WA", "SA", "Tas", "ACT", "NT", "OTH")),
+               c("Aus", "NSW", "Vic", "Qld", "WA", "SA", "Tas", "ACT", "NT", "Oth"))
 
 })

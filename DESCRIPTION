@@ -1,7 +1,7 @@
 Package: strayr
 Type: Package
 Title: Convert Australian State Names to Abbreviations and Vice Versa
-Version: 0.0.0.901
+Version: 0.0.0.902
 Authors@R: person("Matt", "Cowgill", role = c("aut", "cre"), email = "mattcowgill@gmail.com")
 Maintainer: Matt Cowgill <mattcowgill@gmail.com>
 Description: Easily convert from common abbreviations of Australian state names
@@ -11,6 +11,6 @@ Imports: stringdist (>= 0.9.5.1)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Suggests: 
     testthat (>= 2.1.0)

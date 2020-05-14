@@ -74,15 +74,7 @@ strayr <- function(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, met
 
 state_string_tidy <- function(string){
 
-  strings_to_remove <- paste(c("the",
-                         "great",
-                         "state",
-                         "of"),
-                         collapse = "|")
-
   string <- tolower(string)
-
-  string <- gsub(strings_to_remove, "", string)
 
   string <- trimws(string, "both")
 

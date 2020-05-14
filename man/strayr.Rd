@@ -4,8 +4,7 @@
 \alias{strayr}
 \title{Convert Australian state names and abbreviations into a consistent format}
 \usage{
-strayr(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4,
-  method = "jw")
+strayr(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, method = "jw")
 }
 \arguments{
 \item{x}{a (character) vector containing Australian state names or abbreviations or
