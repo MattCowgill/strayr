@@ -31,4 +31,9 @@ test_that("strayr returns expected output", {
   expect_equal(strayr(c("Aus", "NSW", "Vic", "Qld", "WA", "SA", "Tas", "ACT", "NT", "OTH")),
                c("Aus", "NSW", "Vic", "Qld", "WA", "SA", "Tas", "ACT", "NT", "Oth"))
 
+  expect_identical(strayr("NA"), NA_character_)
+  expect_identical(strayr("n a "), NA_character_)
+  expect_equal(strayr(c("Aus", "SA", "not applicable")),
+               c("Aus", "SA", NA_character_))
+
 })

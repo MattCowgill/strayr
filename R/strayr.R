@@ -57,6 +57,7 @@ strayr <- function(x, to = "state_abbr", fuzzy_match = TRUE, max_dist = 0.4, met
   if(fuzzy_match){
     matched_abbr <- names(state_dict[stringdist::amatch(x, tolower(state_dict),
                                                method = method,
+                                               matchNA = FALSE,
                                                maxDist = max_dist)])
   } else {
     matched_abbr <- names(state_dict[match(x, tolower(state_dict))])
@@ -77,6 +78,11 @@ state_string_tidy <- function(string){
   string <- tolower(string)
 
   string <- trimws(string, "both")
+
+  string <- ifelse(string %in% c("na", "n.a", "n.a.", "n a",
+                                 "not applicable"),
+                   NA_character_,
+                   string)
 
   string
 }
