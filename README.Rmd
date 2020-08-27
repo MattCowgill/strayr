@@ -89,3 +89,19 @@ library(dplyr)
  x_df %>% 
    mutate(state_abbr = strayr(state))
 ```
+
+### Australian Public Holidays
+This package now includes the `auholidays` dataset from the [Australian Public Holidays Dates Machine Readable Dataset](https://data.gov.au/data/dataset/australian-holidays-machine-readable-dataset) as well as a helper function `is_holiday`:
+
+```{r is_holiday_example}
+str(auholidays)
+
+
+is_holiday('2020-01-01')
+is_holiday('2019-05-27', jurisdictions=c('ACT', 'TAS'))
+
+h_df <- data.frame(dates = c('2020-01-01', '2020-01-10'))
+
+h_df %>%
+  mutate(IsHoliday = is_holiday(dates))
+```
