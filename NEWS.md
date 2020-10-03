@@ -1,3 +1,6 @@
+# strayr 0.0.1
+* Public holidays now included courtesy of Bryce Roney; see `?is_holiday()`
+
 # strayr 0.0.0.901
 * strayr() now recognises 'Australia', 'Other', and 'Total' as distinct strings for matching
 * Extraneous elements (such as "the") no longer removed before fuzzy matching

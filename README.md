@@ -103,14 +103,14 @@ library(dplyr)
 
 ### Australian Public Holidays
 
-This package now includes the `auholidays` dataset from the [Australian
+This package includes the `auholidays` dataset from the [Australian
 Public Holidays Dates Machine Readable
 Dataset](https://data.gov.au/data/dataset/australian-holidays-machine-readable-dataset)
 as well as a helper function `is_holiday`:
 
 ``` r
 str(auholidays)
-#> tibble [776 x 3] (S3: tbl_df/tbl/data.frame)
+#> tibble [776 × 3] (S3: tbl_df/tbl/data.frame)
 #>  $ Date        : Date[1:776], format: "2021-01-01" "2021-01-26" ...
 #>  $ Name        : chr [1:776] "New Year's Day" "Australia Day" "Canberra Day" "Good Friday" ...
 #>  $ Jurisdiction: chr [1:776] "ACT" "ACT" "ACT" "ACT" ...

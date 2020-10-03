@@ -32,6 +32,8 @@ Convert Australian state names and abbreviations into a consistent format
 }
 \examples{
 
+library(strayr)
+
 x <- c("western Straya", "w. A ", "new soth wailes", "SA", "tazz")
 
 # Convert the above to state abbreviations

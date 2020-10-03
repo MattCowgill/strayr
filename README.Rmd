@@ -91,7 +91,7 @@ library(dplyr)
 ```
 
 ### Australian Public Holidays
-This package now includes the `auholidays` dataset from the [Australian Public Holidays Dates Machine Readable Dataset](https://data.gov.au/data/dataset/australian-holidays-machine-readable-dataset) as well as a helper function `is_holiday`:
+This package includes the `auholidays` dataset from the [Australian Public Holidays Dates Machine Readable Dataset](https://data.gov.au/data/dataset/australian-holidays-machine-readable-dataset) as well as a helper function `is_holiday`:
 
 ```{r is_holiday_example}
 str(auholidays)
