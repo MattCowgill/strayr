@@ -13,6 +13,8 @@ status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https:/
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
+[![R build
+status](https://github.com/mattcowgill/strayr/workflows/R-CMD-check/badge.svg)](https://github.com/mattcowgill/strayr/actions)
 <!-- badges: end -->
 
 ## Overview
@@ -99,4 +101,33 @@ library(dplyr)
 #> 5            tazz        Tas
 #> 6        Victoria        Vic
 #> 7  northn territy         NT
+```
+
+### Australian Public Holidays
+
+This package includes the `auholidays` dataset from the [Australian
+Public Holidays Dates Machine Readable
+Dataset](https://data.gov.au/data/dataset/australian-holidays-machine-readable-dataset)
+as well as a helper function `is_holiday`:
+
+``` r
+str(auholidays)
+#> tibble [776 × 3] (S3: tbl_df/tbl/data.frame)
+#>  $ Date        : Date[1:776], format: "2021-01-01" "2021-01-26" ...
+#>  $ Name        : chr [1:776] "New Year's Day" "Australia Day" "Canberra Day" "Good Friday" ...
+#>  $ Jurisdiction: chr [1:776] "ACT" "ACT" "ACT" "ACT" ...
+
+
+is_holiday('2020-01-01')
+#> [1] TRUE
+is_holiday('2019-05-27', jurisdictions=c('ACT', 'TAS'))
+#> [1] TRUE
+
+h_df <- data.frame(dates = c('2020-01-01', '2020-01-10'))
+
+h_df %>%
+  mutate(IsHoliday = is_holiday(dates))
+#>        dates IsHoliday
+#> 1 2020-01-01      TRUE
+#> 2 2020-01-10     FALSE
 ```
