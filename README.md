@@ -13,6 +13,8 @@ status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https:/
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
+[![R build
+status](https://github.com/mattcowgill/strayr/workflows/R-CMD-check/badge.svg)](https://github.com/mattcowgill/strayr/actions)
 <!-- badges: end -->
 
 ## Overview
