@@ -5,16 +5,12 @@
 
 <!-- badges: start -->
 
-[![Build
-Status](https://travis-ci.org/MattCowgill/strayr.svg?branch=master)](https://travis-ci.org/MattCowgill/strayr)
 [![codecov
 status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https://codecov.io/gh/MattCowgill/strayr)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-
 [![R build
 status](https://github.com/mattcowgill/strayr/workflows/R-CMD-check/badge.svg)](https://github.com/mattcowgill/strayr/actions)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 ## Overview
@@ -39,7 +35,6 @@ names, some correctly spelled state names, as well as some abbreviations
 both malformed and correctly formed.
 
 ``` r
-
 x <- c("western Straya", "w. A ", "new soth wailes", "SA", "tazz", "Victoria",
        "northn territy")
 ```
@@ -56,7 +51,6 @@ strayr(x)
 If you want full names for the states rather than abbreviations:
 
 ``` r
-
 strayr(x, to = "state_name")
 #> [1] "Western Australia"  "Western Australia"  "New South Wales"   
 #> [4] "South Australia"    "Tasmania"           "Victoria"          
@@ -79,7 +73,6 @@ If your data is in a data frame, `strayr()` works well within a
 `dplyr::mutate()` call:
 
 ``` r
-
  x_df <- data.frame(state = x, stringsAsFactors = FALSE)
 
 library(dplyr)
