@@ -10,8 +10,13 @@ status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https:/
 [![R build
 status](https://github.com/mattcowgill/strayr/workflows/R-CMD-check/badge.svg)](https://github.com/mattcowgill/strayr/actions)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
 <!-- badges: end -->
+
+**This package has merged with the `abscorr` package by the R Users’
+Network for Australian Public Policy. The merged package is called
+`strayr`. Find the merged package at [runapp’s
+GitHub](https://github.com/runapp-aus/strayr).**
 
 ## Overview
 
@@ -105,10 +110,10 @@ as well as a helper function `is_holiday`:
 
 ``` r
 str(auholidays)
-#> tibble [776 × 3] (S3: tbl_df/tbl/data.frame)
-#>  $ Date        : Date[1:776], format: "2021-01-01" "2021-01-26" ...
-#>  $ Name        : chr [1:776] "New Year's Day" "Australia Day" "Canberra Day" "Good Friday" ...
-#>  $ Jurisdiction: chr [1:776] "ACT" "ACT" "ACT" "ACT" ...
+#> tibble [779 × 3] (S3: tbl_df/tbl/data.frame)
+#>  $ Date        : Date[1:779], format: "2021-01-01" "2021-01-26" ...
+#>  $ Name        : chr [1:779] "New Year's Day" "Australia Day" "Canberra Day" "Good Friday" ...
+#>  $ Jurisdiction: chr [1:779] "ACT" "ACT" "ACT" "ACT" ...
 
 
 is_holiday('2020-01-01')
