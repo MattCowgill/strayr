@@ -1,3 +1,6 @@
+# strayr 0.0.2
+* This package merged with another, now housed at `runapp/strayr`
+
 # strayr 0.0.1
 * Public holidays now included courtesy of Bryce Roney; see `?is_holiday()`
 

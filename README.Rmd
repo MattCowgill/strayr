@@ -20,8 +20,11 @@ version <- gsub('-', '.', version)
 <!-- badges: start -->
 [![codecov status](https://img.shields.io/codecov/c/github/mattcowgill/strayr.svg)](https://codecov.io/gh/MattCowgill/strayr)
 [![R build status](https://github.com/mattcowgill/strayr/workflows/R-CMD-check/badge.svg)](https://github.com/mattcowgill/strayr/actions)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
 <!-- badges: end -->
+
+**This package has merged with the `abscorr` package by the R Users' Network for
+Australian Public Policy. The merged package is called `strayr`. Find the merged package at [runapp's GitHub](https://github.com/runapp-aus/strayr).**
 
 ## Overview
 strayr is a simple tool to wrangle messy Australian state names and/or abbreviations
